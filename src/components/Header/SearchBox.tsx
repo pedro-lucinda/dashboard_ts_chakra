@@ -12,7 +12,8 @@ const SearchBox = () => {
 			ml="6"
 			align="center"
 			position="relative"
-			maxWidth={400}
+			h="50px"
+
 			alignSelf="center"
 			color="gray.300"
 			bg="gray.700"

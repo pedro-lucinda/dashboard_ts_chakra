@@ -11,6 +11,7 @@ import {
 	Button,
 } from "@chakra-ui/react";
 import { Header } from "../../components/Header";
+import Link from "next/link";
 
 export default function CreateUser() {
 	return (
@@ -40,9 +41,15 @@ export default function CreateUser() {
 
 					<Flex mt="8" justify="flex-end">
 						<HStack spacing="4">
-							<Button colorScheme="whiteAlpha" _hover={{ bg: "red.500" }}>
-								Cancel
-							</Button>
+							<Link href="/users">
+								<Button
+									as="a"
+									colorScheme="whiteAlpha"
+									_hover={{ bg: "red.500", cursor: "pointer" }}
+								>
+									Cancel
+								</Button>
+							</Link>
 							<Button
 								colorScheme="blue"
 								_hover={{ bg: "blue.700" }}
