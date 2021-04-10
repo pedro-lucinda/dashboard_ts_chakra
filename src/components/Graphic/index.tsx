@@ -13,6 +13,9 @@ const options = {
 		},
 		foreColor: theme.colors.gray[500],
 	},
+	stroke: {
+		curve: "smooth",
+	},
 	grid: {
 		show: false,
 	},
@@ -32,18 +35,24 @@ const options = {
 		},
 		categories: ["", "19 mar", "20 mar", "21 mar", "22 mar"],
 	},
-	fill: {
-		opacity: 0.3,
-		type: "gradient",
-		gradient: {
-			shade: "dark",
-			opacityFrom: 0.7,
-			opacityTo: 0.3,
-		},
+
+	markers: {
+		size: 0,
 	},
 };
-const series = [{ name: "series1", data: [50, 500, 100, 600, 5] }];
+const series = [
+	{
+		name: "Income",
+		type: "line",
+		data: [10, 100, 2000, 400, 1000, 500],
+	},
+	{
+		name: "users",
+		type: "line",
+		data: [500, 1000, 400, 2000, 10],
+	},
+];
 
 export const Graphic = () => {
-	return <Chart options={options} series={series} type="area" height={160} />;
+	return <Chart options={options} series={series} type="line" height={160} />;
 };
