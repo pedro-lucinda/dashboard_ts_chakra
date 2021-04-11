@@ -1,11 +1,6 @@
-import { Box, Icon, Link, Stack, Text } from "@chakra-ui/react";
-import { ReactNode } from "react";
-import { RiContactsLine, RiDashboardLine } from "react-icons/ri";
+import { Box, Stack, Text } from "@chakra-ui/react";
 
-interface NavSectionProps {
-	title: string;
-	children: ReactNode;
-}
+import { NavSectionProps } from "../../types";
 
 export const NavSection = ({ title, children }: NavSectionProps) => {
 	return (

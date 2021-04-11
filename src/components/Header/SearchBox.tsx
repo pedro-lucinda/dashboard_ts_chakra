@@ -13,7 +13,6 @@ const SearchBox = () => {
 			align="center"
 			position="relative"
 			h="50px"
-
 			alignSelf="center"
 			color="gray.300"
 			bg="gray.700"

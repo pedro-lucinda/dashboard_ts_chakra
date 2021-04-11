@@ -1,9 +1,8 @@
 import { Avatar, Box, Flex, Text } from "@chakra-ui/react";
 import React from "react";
+import { ProfileProps } from "../../types";
 
-interface ProfileProps {
-	showProfileData: Boolean;
-}
+
 export const Profile = ({ showProfileData }: ProfileProps) => {
 	return (
 		<Flex align="center">

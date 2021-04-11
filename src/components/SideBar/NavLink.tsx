@@ -6,13 +6,10 @@ import {
 } from "@chakra-ui/react";
 //When use the name of the component => elementtype
 import { ElementType } from "react";
+import { NavLinkProps } from "../../types";
 import { ActiveLink } from "../ActiveLink";
 
-interface NavLinkProps extends ChakraLinkProps {
-	icon: ElementType;
-	title: string;
-	href: string;
-}
+
 export const NavLink = ({ icon, title, href, ...rest }: NavLinkProps) => {
 	return (
 		<ActiveLink href={href}>
