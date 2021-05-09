@@ -6,6 +6,7 @@
 - TypeScript
 - React Query
 - Chakra Ui
+- MirageJS
 - Framer Motion
 - React Icons
 
