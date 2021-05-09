@@ -1,12 +1,14 @@
 import Head from "next/head";
 import { Button, Flex, FormControl, FormLabel, Stack } from "@chakra-ui/react";
 import { Input } from "../components/Form/ Input";
-import { SignInFormData } from "../types";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { signinFormSchema } from "../components/Form/ValidationSchema";
 import { yupResolver } from "@hookform/resolvers/yup";
 
-
+export type SignInFormData = {
+	email: string;
+	password: string;
+};
 
 export default function SingIn() {
 	const { register, handleSubmit, formState } = useForm({
@@ -22,7 +24,7 @@ export default function SingIn() {
 			<Head>
 				<title> SignIn | Dashboar </title>
 			</Head>
-			<Flex w="100vw" h="100vh" align="center" justify="center" >
+			<Flex w="100vw" h="100vh" align="center" justify="center">
 				<Flex
 					as="form"
 					w="100%"

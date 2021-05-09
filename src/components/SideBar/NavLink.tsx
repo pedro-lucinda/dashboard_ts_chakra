@@ -6,7 +6,7 @@ import {
 } from "@chakra-ui/react";
 //When use the name of the component => elementtype
 import { ElementType } from "react";
-import { NavLinkProps } from "../../types";
+import { NavLinkProps } from "./types";
 import { ActiveLink } from "../ActiveLink";
 
 

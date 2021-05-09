@@ -5,7 +5,7 @@ import {
 	Input as ChakraInput,
 } from "@chakra-ui/react";
 import { forwardRef, ForwardRefRenderFunction } from "react";
-import { InputProps } from "../../types";
+import { InputProps } from "./types";
 
 const InputBase: ForwardRefRenderFunction<HTMLInputElement, InputProps> = (
 	{ name, label, error = null, ...rest },

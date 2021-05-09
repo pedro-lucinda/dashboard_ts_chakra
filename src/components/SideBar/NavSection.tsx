@@ -1,6 +1,6 @@
 import { Box, Stack, Text } from "@chakra-ui/react";
 
-import { NavSectionProps } from "../../types";
+import { NavSectionProps } from "./types";
 
 export const NavSection = ({ title, children }: NavSectionProps) => {
 	return (

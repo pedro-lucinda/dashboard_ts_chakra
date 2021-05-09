@@ -70,7 +70,12 @@ export const UserListMobile = () => {
 						</Button>
 					</Flex>
 
-					<Pagination />
+					<Pagination
+						totalCountOfRegisters={200}
+						registersPerPage={2}
+						currentPage={1}
+						onPageChange={() => {}}
+					/>
 				</Box>
 			</Flex>
 		</Box>

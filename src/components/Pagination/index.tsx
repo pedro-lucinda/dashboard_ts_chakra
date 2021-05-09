@@ -1,8 +1,37 @@
-import { Box, Stack } from "@chakra-ui/layout";
+import { Text, Box, Stack } from "@chakra-ui/react";
 import { useBreakpointValue } from "@chakra-ui/media-query";
 import { PaginationItem } from "./PaginationItem";
+import { PaginationProps } from "./types";
 
-export default function Pagination() {
+const siblingsCount = 1;
+function generatePagesArray(from: number, to: number) {
+	return [...new Array(to - from)]
+		.map((_, index) => {
+			return from + index + 1;
+		})
+		.filter((page) => page > 0);
+}
+
+export default function Pagination({
+	totalCountOfRegisters,
+	registersPerPage = 10,
+	currentPage = 1,
+	onPageChange,
+}: PaginationProps) {
+	const lastPage = Math.floor(totalCountOfRegisters / registersPerPage);
+	const previousPage =
+		currentPage > 1
+			? generatePagesArray(currentPage - 1 - siblingsCount, currentPage - 1)
+			: [];
+
+	const nexPages =
+		currentPage < lastPage
+			? generatePagesArray(
+					currentPage,
+					Math.min(currentPage + siblingsCount, lastPage)
+			  )
+			: [];
+
 	const isWideVersion = useBreakpointValue({
 		base: false,
 		lg: true,
@@ -26,12 +55,51 @@ export default function Pagination() {
 				)}
 			</Box>
 			<Stack direction="row" spacing="2">
-				<PaginationItem isCurrent number={1} />
-				<PaginationItem number={2} />
-				<PaginationItem number={3} />
-				<PaginationItem number={4} />
-				<PaginationItem number={5} />
-				<PaginationItem number={6} />
+				{currentPage > 1 + siblingsCount && (
+					<>
+						<PaginationItem onPagechange={onPageChange} number={1} />
+						{currentPage > 2 + siblingsCount && (
+							<Text color="gray.300" widht="8" textAlign="center">
+								...
+							</Text>
+						)}
+					</>
+				)}
+				{previousPage.length > 0 &&
+					previousPage.map((page) => {
+						return (
+							<PaginationItem
+								onPagechange={onPageChange}
+								key={page}
+								number={page}
+							/>
+						);
+					})}
+				<PaginationItem
+					onPagechange={onPageChange}
+					isCurrent
+					number={currentPage}
+				/>
+				{nexPages.length > 0 &&
+					nexPages.map((page) => {
+						return (
+							<PaginationItem
+								onPagechange={onPageChange}
+								key={page}
+								number={page}
+							/>
+						);
+					})}
+				{currentPage + siblingsCount < lastPage && (
+					<>
+						{currentPage + 1 + siblingsCount < lastPage && (
+							<Text color="gray.300" widht="8" textAlign="center">
+								...
+							</Text>
+						)}
+						<PaginationItem onPagechange={onPageChange} number={lastPage} />
+					</>
+				)}
 			</Stack>
 		</Stack>
 	);

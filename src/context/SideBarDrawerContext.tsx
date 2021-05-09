@@ -1,9 +1,7 @@
-import { useDisclosure, UseDisclosureReturn } from "@chakra-ui/hooks";
-import { createContext, ReactNode, useContext, useEffect } from "react";
+import { useDisclosure } from "@chakra-ui/hooks";
+import { createContext, useContext, useEffect } from "react";
 import { useRouter } from "next/router";
-import { SideBarDrawerContextData, SideBarDrawerProviderProps } from "../types";
-
-
+import { SideBarDrawerContextData, SideBarDrawerProviderProps } from "./types";
 
 export const SideBarDrawerContext = createContext(
 	{} as SideBarDrawerContextData

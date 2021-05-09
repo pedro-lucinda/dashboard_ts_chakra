@@ -1,9 +1,7 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { cloneElement } from "react";
-import { ActiveLinkProps } from "../types";
-
-
+import { ActiveLinkProps } from "./activeLinkTypes";
 
 export const ActiveLink = ({
 	children,

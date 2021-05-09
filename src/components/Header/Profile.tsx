@@ -1,6 +1,6 @@
 import { Avatar, Box, Flex, Text } from "@chakra-ui/react";
 import React from "react";
-import { ProfileProps } from "../../types";
+import { ProfileProps } from "./types";
 
 
 export const Profile = ({ showProfileData }: ProfileProps) => {

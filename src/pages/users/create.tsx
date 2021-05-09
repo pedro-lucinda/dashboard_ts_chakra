@@ -15,9 +15,7 @@ import Link from "next/link";
 import { createUserFormSchema } from "../../components/Form/ValidationSchema";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { CreateUserFormData } from "../../types";
-
-// CreateUserFormData
+import { CreateUserFormData } from "./types";
 
 export default function CreateUser() {
 	const { register, handleSubmit, formState } = useForm({
