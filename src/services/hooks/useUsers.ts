@@ -1,4 +1,4 @@
-import { GetUserResponse } from './types';
+import { GetUserResponse, User } from "./types";
 import { useQuery } from "react-query";
 import { api } from "../api";
 
@@ -12,23 +12,25 @@ export async function getUsers(page: number): Promise<GetUserResponse> {
 
 	const totalCount = Number(headers["x-total-count"]);
 
-	const users = data.users.map((user) => {
+	const users = data.users.map((user: User) => {
 		return {
 			id: user.id,
 			name: user.name,
 			email: user.email,
-			createdAt: new Date(user.createdAt).toLocaleDateString("pt-BR", {
+			createdAt: new Date(Date.now()).toLocaleDateString("en-US", {
 				day: "2-digit",
 				month: "long",
 				year: "numeric",
 			}),
 		};
 	});
+
 	return { users, totalCount };
 }
 
+// with react query
 export function useUsers(page: number) {
 	return useQuery(["users", page], () => getUsers(page), {
-		staleTime: 1000 * 5, // 5 seconds
+		staleTime: 1000 * 60 * 10, // 10 min
 	});
 }
