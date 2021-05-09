@@ -4,6 +4,7 @@
 
 - NextJS
 - TypeScript
+- React Query
 - Chakra Ui
 - Framer Motion
 - React Icons
